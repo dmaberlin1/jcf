@@ -16,12 +16,13 @@ Requirements:
 
 public class Solution {
     public static Object createArrayList() {
-        //напишите тут ваш код
-
+        ArrayList<Integer> integers = new ArrayList<>();
+        return integers;
     }
 
     public static Object createLinkedList() {
-        //напишите тут ваш код
+        LinkedList<Object> objects = new LinkedList<>();
+        return objects;
 
     }
 

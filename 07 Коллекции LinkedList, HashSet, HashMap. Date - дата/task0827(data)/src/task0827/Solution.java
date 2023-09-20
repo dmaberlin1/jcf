@@ -22,9 +22,23 @@ Requirements:
 public class Solution {
     public static void main(String[] args) {
         System.out.println(isDateOdd("MAY 1 2013"));
+        System.out.println(isDateOdd("MAY 12 2013"));
+        System.out.println(isDateOdd("MAY 3 2013"));
+        System.out.println(isDateOdd("MAY 3 2024"));
     }
 
     public static boolean isDateOdd(String date) {
-        return true;
+        Date givenDate=new Date(date);
+        Date start=new Date();
+        start.setHours(0);
+        start.setMinutes(0);
+        start.setSeconds(0);
+        start.setDate(0);
+        start.setMonth(0);
+        start.setYear(givenDate.getYear());
+        long msTimeDistance = givenDate.getTime() - start.getTime();
+        long dayInMs=24*60*60*1000; // полный день в пересчете на мс
+        int daysCount=(int)(msTimeDistance/dayInMs);
+        return (daysCount%2==0);
     }
 }

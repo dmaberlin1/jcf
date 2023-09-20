@@ -1,6 +1,7 @@
 package task0801;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /* 
@@ -30,7 +31,16 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        HashSet<String> plaintsHash = new HashSet<>(10);
+        String[] plaints= {"арбуз", "банан", "вишня", "  груша", "дыня", "арбуз", "вишня", "груша",
+                "дыня", "ежевика", "женьшень", "земляника", "ирис", "картофель", "ежевика", "женьшень", "земляника", "ирис", "картофель"
+        };
+
+        for (int i = 0; i < plaints.length; i++) {
+            plaintsHash.add(plaints[i]);
+        }
+        plaintsHash.forEach(System.out::println);
+
 
     }
 }

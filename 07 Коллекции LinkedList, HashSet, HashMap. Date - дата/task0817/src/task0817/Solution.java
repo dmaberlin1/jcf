@@ -1,6 +1,7 @@
 package task0817;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /* 
@@ -17,14 +18,41 @@ Requirements:
 5. Метод removeTheFirstNameDuplicates() должен вызывать метод removeItemFromMapByValue().*/
 
 public class Solution {
-    public static Map<String, String> createMap() {
-        //напишите тут ваш код
 
+    public static void main(String[] args) {
+        Map<String, String> map = createMap();
+        removeTheFirstNameDuplicates(map);
+        map.forEach((k,v)-> System.out.println("key= " + k+" value: "+v));
+    }
+
+    public static Map<String, String> createMap() {
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("Киров", "Dupont");
+        hashMap.put("Маркин", "Martin");
+        hashMap.put("Тимченко", "Lefebvre");
+        hashMap.put("Ирмовин", "Dubois");
+        hashMap.put("Ирмов", "Dubois");
+        hashMap.put("Тимофеев", "Petit");
+        hashMap.put("Димов", "Laurent");
+        hashMap.put("Тюрцев", "Roux");
+        hashMap.put("Киркин", "Moreau");
+        hashMap.put("Филов", "Leroy");
+
+        return  hashMap;
     }
 
     public static void removeTheFirstNameDuplicates(Map<String, String> map) {
-        //напишите тут ваш код
-
+        Map<String, String> copy = new HashMap<>(map);
+        Iterator<Map.Entry<String, String>> iterator = copy.entrySet().iterator();
+        while (iterator.hasNext()){
+            String value = iterator.next().getValue();
+            iterator.remove();
+            for (Map.Entry<String, String> stringEntry : copy.entrySet()) {
+                if(value.equals(stringEntry.getValue())){
+                    removeItemFromMapByValue(map,value);
+                }
+            }
+        }
     }
 
     public static void removeItemFromMapByValue(Map<String, String> map, String value) {
@@ -36,7 +64,5 @@ public class Solution {
         }
     }
 
-    public static void main(String[] args) {
 
-    }
 }

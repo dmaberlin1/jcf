@@ -32,6 +32,6 @@ public class Solution {
     }
 
     public static void printValues(Map<String, String> map) {
-        //напишите тут ваш код
+        map.forEach((key, value) -> System.out.println(key + ":" + value));
     }
 }

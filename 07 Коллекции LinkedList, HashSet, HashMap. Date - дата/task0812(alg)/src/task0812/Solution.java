@@ -27,7 +27,31 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+
+        ArrayList<Integer> integers = new ArrayList<>(10);
+        var reader = new BufferedReader(new InputStreamReader(System.in));
+        int count = 1;
+        int max = 1;
+        int listSize = 10;
+
+        for (int i = 0; i < listSize; i++) {
+            System.out.println("Введите число  еще " + (listSize - i) + " раз");
+            integers.add(Integer.parseInt(reader.readLine()));
+        }
+        for (int i = 0; i < listSize - 1; i++) {
+            if (integers.get(i).equals(integers.get(i + 1))) {
+                count++;
+                if (max < count) {
+                    max = count;
+                }
+            } else {
+                count = 1;
+            }
+        }
+        System.out.println("max = " + max);
 
     }
+
+
 }
+

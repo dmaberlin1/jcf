@@ -17,22 +17,46 @@ Requirements:
 5. Метод getCountTheSameLastName() должен возвращать число людей у которых совпадает фамилия.*/
 
 public class Solution {
-    public static Map<String, String> createMap() {
-        //напишите тут ваш код
+    public static void main(String[] args) {
+        Map<String, String> map = createMap();
+        System.out.println("getCountTheSameFirstName(map,\"Leroy\") = " + getCountTheSameFirstName(map, "Leroy"));
+        System.out.println("getCountTheSameLastName(map,\"Киркин\") = " + getCountTheSameLastName(map, "Киркин"));
+    }
 
+
+    public static Map<String, String> createMap() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Киров", "Dupont");
+        map.put("Маркин", "Martin");
+        map.put("Тимченко", "Lefebvre");
+        map.put("Ирмов", "Dubois");
+        map.put("Тимофеев", "Petit");
+        map.put("Димов", "Laurent");
+        map.put("Тюрцев", "Roux");
+        map.put("Киркин", "Moreau");
+        map.put("Филов", "Leroy");
+
+        return map;
     }
 
     public static int getCountTheSameFirstName(Map<String, String> map, String name) {
-        //напишите тут ваш код
-
+        int count = 0;
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if (entry.getValue().equals(name)) {
+                count += 1;
+            }
+        }
+        return count;
     }
 
     public static int getCountTheSameLastName(Map<String, String> map, String lastName) {
-        //напишите тут ваш код
-
+        int count = 0;
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if (entry.getKey().equals(lastName)) {
+                count += 1;
+            }
+        }
+        return count;
     }
 
-    public static void main(String[] args) {
-
-    }
 }

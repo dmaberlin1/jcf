@@ -1,6 +1,7 @@
 package task0820;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /* 
@@ -30,7 +31,8 @@ public class Solution {
 
         Set<Object> pets = join(cats, dogs);
         printPets(pets);
-
+        System.out.println();
+        System.out.println("Ниже принт после removeCats");
         removeCats(pets, cats);
         printPets(pets);
     }
@@ -38,28 +40,46 @@ public class Solution {
     public static Set<Cat> createCats() {
         Set<Cat> result = new HashSet<Cat>();
 
-        //напишите тут ваш код
-
+       result.add(new Cat());
+       result.add(new Cat());
+       result.add(new Cat());
+       result.add(new Cat());
         return result;
     }
 
     public static Set<Dog> createDogs() {
-        //напишите тут ваш код
-        return null;
+        HashSet<Dog> dogs = new HashSet<Dog>();
+
+        dogs.add(new Dog());
+        dogs.add(new Dog());
+        dogs.add(new Dog());
+        dogs.add(new Dog());
+
+        return dogs;
     }
 
     public static Set<Object> join(Set<Cat> cats, Set<Dog> dogs) {
-        //напишите тут ваш код
-        return null;
-    }
+        HashSet<Object> objects = new HashSet<>();
+        objects.addAll(cats);
+        objects.addAll(dogs);
 
+        return objects;
+    }
+    //        pets.removeAll(cats);   метод который покрывает этот таск
     public static void removeCats(Set<Object> pets, Set<Cat> cats) {
-        //напишите тут ваш код
+//        pets.removeAll(cats);
+
+                Iterator<Object> iteratorPets = pets.iterator();
+        while (iteratorPets.hasNext()){
+            if(cats.contains(iteratorPets.next())){
+                iteratorPets.remove();
+            }
+        }
     }
 
     public static void printPets(Set<Object> pets) {
-        //напишите тут ваш код
+      pets.forEach(System.out::println);
     }
 
-    //напишите тут ваш код
+
 }

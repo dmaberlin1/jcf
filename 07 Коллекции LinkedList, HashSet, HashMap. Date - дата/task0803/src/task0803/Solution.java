@@ -18,7 +18,7 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        String[] cats = new String[]{"васька", "мурка", "дымка", "рыжик", "серый", "снежок", "босс", "борис", "визя", "гарфи"};
+        String[] cats = {"васька", "мурка", "дымка", "рыжик", "серый", "снежок", "босс", "борис", "визя", "гарфи"};
 
         Map<String, Cat> map = addCatsToMap(cats);
 
@@ -29,8 +29,12 @@ public class Solution {
 
 
     public static Map<String, Cat> addCatsToMap(String[] cats) {
-        //напишите тут ваш код
-
+        HashMap<String,Cat> map=new HashMap<>();
+        for (String catName : cats) {
+            Cat cat=new Cat(catName);
+            map.put(catName,cat);
+        }
+    return map;
     }
 
 
